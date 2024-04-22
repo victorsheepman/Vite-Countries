@@ -1,1 +1,1 @@
-export const fontfamily = "Nunito Sans";
+export const nunito = "Nunito Sans";
