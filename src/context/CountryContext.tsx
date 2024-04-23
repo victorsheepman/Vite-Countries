@@ -15,8 +15,9 @@ export const useCountryContext = () => {
     const [countries, setCountries] = useState<Country[]>([]);
 
     const fetchApi = async ()=>{
-        const res = await fetch('https://raw.githubusercontent.com/devchallenges-io/web-project-ideas/main/front-end-projects/data/simple-coffee-listing-data.json');
+        const res = await fetch('https://restcountries.com/v3.1/all?fields=name,capital,population,flags');
         const json = await res.json();
+        setCountries(json)
     }
 
     return {
