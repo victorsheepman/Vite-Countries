@@ -1,5 +1,6 @@
 import { createContext, useState } from 'react';
 import { CountryContextType } from '.';
+import { Country } from '../schema';
 
 // Creamos el contexto
 export const CountryContext = createContext<CountryContextType>({
@@ -11,7 +12,7 @@ export const CountryContext = createContext<CountryContextType>({
 
 // Hook personalizado para acceder al contexto
 export const useCountryContext = () => {
-    const [countries, setCountries] = useState<string[]>([]);
+    const [countries, setCountries] = useState<Country[]>([]);
 
     const fetchApi = async ()=>{
         const res = await fetch('https://raw.githubusercontent.com/devchallenges-io/web-project-ideas/main/front-end-projects/data/simple-coffee-listing-data.json');

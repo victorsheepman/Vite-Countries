@@ -1,6 +1,7 @@
+import { Country } from "../schema";
 
 export interface CountryContextType {
-    countries: string[];
+    countries: Country[];
     fetchApi: () => void;
 }
   
