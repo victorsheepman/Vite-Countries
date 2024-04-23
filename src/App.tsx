@@ -1,15 +1,13 @@
-import { style } from 'typestyle'
-import { nunito } from './theme'
+import { BrowserRouter } from 'react-router-dom'
+import { CountryApp } from './CountryApp'
 
 function App() {
   return (
-    <h1 className={h1}>
-      hola
-    </h1>
+    <BrowserRouter>
+       <CountryApp />
+    </BrowserRouter>
   )
 }
 
-const h1 = style({
-  fontFamily:nunito
-})
+
 export default App
