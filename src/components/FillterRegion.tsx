@@ -1,8 +1,11 @@
 import { ConfigProvider, Select } from 'antd'
 import { style } from 'typestyle';
-import { veryLightGray, white } from '../theme';
+import { darkBlue, veryDarkBlue, veryDarkBlueText, veryLightGray, white } from '../theme';
+import { useContext } from 'react';
+import { CountryContext } from '../context';
 
 export const FillterRegion = () => {
+    const {isDarkMode} = useContext(CountryContext)
     const handleChange = (value: string) => {
         console.log(`selected ${value}`);
       };
@@ -14,18 +17,21 @@ export const FillterRegion = () => {
             Select: {
                 colorBorder:'unset',
                 borderRadius:5,
-                colorBgContainer:white,
+                colorBgContainer: isDarkMode ? darkBlue : white,
                 optionFontSize:12,
-                optionActiveBg:veryLightGray,
-                optionSelectedBg:veryLightGray,
+                optionActiveBg: isDarkMode ? veryDarkBlue : veryLightGray,
+                optionSelectedBg: isDarkMode ? veryDarkBlue : veryLightGray,
                 optionPadding:'16px 24px 8px 24px',
-       
+                colorText: isDarkMode ? white : veryDarkBlueText,
+                colorBgElevated: isDarkMode ? darkBlue : white,
+                colorIcon:isDarkMode ? white : veryDarkBlueText,
             },
             },
         }}
     >
     <Select
       defaultValue="lucy"
+      suffixIcon={<img src={isDarkMode ? 'expand-moreDark.svg' : 'expand-more.svg'} />}
       style={
             {
                 width: 200,
