@@ -41,21 +41,3 @@ const homeFiltersStyle =  style(
         }
     ),
 )
-
-
-const searchExample =  style(
-    {
-        width:'343px',
-        height:'48px',
-        backgroundColor:'red'
-    }
-)
-
-
-const filterExample =  style(
-    {
-        width:'200px',
-        height:'48px',
-        backgroundColor:'red'
-    }
-)

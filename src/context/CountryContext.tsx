@@ -12,10 +12,10 @@ export const CountryContext = createContext<CountryContextType>({
     fetchApi: function (): void {
         throw new Error('Function not implemented.');
     },
-    getCountriesByRegion: function (regionItem: string):void {
+    getCountriesByRegion: function ():void {
         throw new Error('Function not implemented.');
     },
-    getCountriesByName: function (countryName:string):void{
+    getCountriesByName: function ():void{
         throw new Error('Function not implemented.'); 
     }
 });
