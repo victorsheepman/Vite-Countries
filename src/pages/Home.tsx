@@ -1,5 +1,5 @@
 import { media, style } from 'typestyle'
-import { FillterRegion, SearchCountry } from '../components'
+import { CountryCard, FillterRegion, SearchCountry } from '../components'
 
 export const Home = () => {
     let list = [1]
@@ -13,7 +13,7 @@ export const Home = () => {
             <div className={homeListStyle}>
                 {
                     list.map(i=>(
-                        <div className={cardExample}></div>
+                        <CountryCard />
                     ))
                 }
             </div>
@@ -80,7 +80,6 @@ const homeListStyle = style(
         flexDirection:'column',
         alignItems:'center',
         gap:'40px',
-        backgroundColor:'black'
     },
     media(
         {minWidth:1366},
@@ -94,11 +93,3 @@ const homeListStyle = style(
     )
 )
 
-
-const cardExample = style(
-    {
-        width:'264px',
-        height:'336px',
-        backgroundColor:'red'
-    }
-)
