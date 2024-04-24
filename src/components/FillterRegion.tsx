@@ -6,9 +6,9 @@ import { CountryContext } from '../context';
 import { RegionEnum, RegionOption } from '../schema';
 
 export const FillterRegion = () => {
-    const {isDarkMode} = useContext(CountryContext)
-    const handleChange = (value: string) => {
-        console.log(`selected ${value}`);
+    const {isDarkMode, getCountriesByRegion} = useContext(CountryContext)
+    const handleChange = (value: RegionEnum) => {
+       getCountriesByRegion(value)
     };
 
     const options:RegionOption[] = [
