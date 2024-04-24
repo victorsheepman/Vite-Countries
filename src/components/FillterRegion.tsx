@@ -6,9 +6,12 @@ import { CountryContext } from '../context';
 import { RegionEnum, RegionOption } from '../schema';
 
 export const FillterRegion = () => {
+    
     const {isDarkMode, getCountriesByRegion} = useContext(CountryContext)
+
     const handleChange = (value: RegionEnum) => {
-       getCountriesByRegion(value)
+        let region = value.toLowerCase()
+        getCountriesByRegion(region)
     };
 
     const options:RegionOption[] = [
@@ -54,9 +57,9 @@ export const FillterRegion = () => {
         }}
     >
     <Select
-      defaultValue={RegionEnum.America}
-      suffixIcon={<img src={isDarkMode ? 'expand-moreDark.svg' : 'expand-more.svg'} />}
-      style={
+        defaultValue={RegionEnum.America}
+        suffixIcon={<img src={isDarkMode ? 'expand-moreDark.svg' : 'expand-more.svg'} />}
+        style={
             {
                 width: 200,
                 height:48,
@@ -64,8 +67,8 @@ export const FillterRegion = () => {
             }
         }
         className={fillterRegionStyle}
-      onChange={handleChange}
-      options={options}
+        onChange={handleChange}
+        options={options}
     />
     </ConfigProvider>
   )

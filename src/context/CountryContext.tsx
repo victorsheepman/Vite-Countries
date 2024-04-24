@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react';
 import { CountryContextType } from '.';
-import { Country, RegionEnum } from '../schema';
+import { Country } from '../schema';
 
 // Creamos el contexto
 export const CountryContext = createContext<CountryContextType>({
@@ -12,7 +12,7 @@ export const CountryContext = createContext<CountryContextType>({
     fetchApi: function (): void {
         throw new Error('Function not implemented.');
     },
-    getCountriesByRegion: function (regionItem: RegionEnum):void {
+    getCountriesByRegion: function (regionItem: string):void {
         throw new Error('Function not implemented.');
     },
 });
@@ -28,12 +28,9 @@ export const useCountryContext = () => {
         setCountries(json)
     }
 
-    const getCountriesByRegion = async (regionItem:RegionEnum)=>{
-        let region = regionItem.toLowerCase()
-
+    const getCountriesByRegion = async (region:string)=>{
         const res = await fetch(`https://restcountries.com/v3.1/region/${region}?fields=name,capital,population,flags`);
         const json = await res.json();
-
         setCountries(json)
     }
 
