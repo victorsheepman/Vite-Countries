@@ -1,5 +1,6 @@
-import { Select } from 'antd'
+import { ConfigProvider, Select } from 'antd'
 import { style } from 'typestyle';
+import { veryLightGray, white } from '../theme';
 
 export const FillterRegion = () => {
     const handleChange = (value: string) => {
@@ -7,12 +8,29 @@ export const FillterRegion = () => {
       };
       
   return (
+    <ConfigProvider
+        theme={{
+            components: {
+            Select: {
+                colorBorder:'unset',
+                borderRadius:5,
+                colorBgContainer:white,
+                optionFontSize:12,
+                optionActiveBg:veryLightGray,
+                optionSelectedBg:veryLightGray,
+                optionPadding:'16px 24px 8px 24px',
+       
+            },
+            },
+        }}
+    >
     <Select
       defaultValue="lucy"
       style={
             {
                 width: 200,
-                height:48
+                height:48,
+                border:'none'
             }
         }
         className={fillterRegionStyle}
@@ -24,6 +42,7 @@ export const FillterRegion = () => {
         { value: 'disabled', label: 'Disabled', disabled: true },
       ]}
     />
+    </ConfigProvider>
   )
 }
 
