@@ -10,6 +10,8 @@ export const Header = () => {
     const changeDarkMode = ()=>{
         setisDarkMode(!isDarkMode)
     }
+
+
   return (
     <header className={classes(headerStyle, style({backgroundColor:isDarkMode ? darkBlue : white}))}>
         <h3 className={headerLabelStyle}>Where in the world?</h3>
