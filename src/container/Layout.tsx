@@ -1,6 +1,6 @@
 import { ReactNode, useContext } from 'react'
 import { classes, style } from 'typestyle'
-import { darkBlue, nunito, veryDarkBlueText, veryLightGray, white } from '../theme'
+import { nunito, veryDarkBlue, veryDarkBlueText, veryLightGray, white } from '../theme'
 import { Header } from '.'
 import { CountryContext } from '../context'
 
@@ -26,6 +26,6 @@ const layout = style(
 const layoutDark = style(
   {
     color:white, 
-    backgroundColor:darkBlue
+    backgroundColor:veryDarkBlue
   }
 )
