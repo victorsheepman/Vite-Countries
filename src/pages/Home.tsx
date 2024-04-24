@@ -1,4 +1,4 @@
-import { style } from 'typestyle'
+import { media, style } from 'typestyle'
 
 export const Home = () => {
   return (
@@ -25,7 +25,14 @@ const homeFiltersStyle =  style(
         display:'flex',
         flexDirection:'column',
         gap:'40px'
-    }
+    },
+    media(
+        {minWidth:768},
+        {
+            flexDirection:'row',
+            justifyContent:'space-between'
+        }
+    ),
 )
 
 
