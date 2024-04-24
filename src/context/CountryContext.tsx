@@ -36,14 +36,14 @@ export const useCountryContext = () => {
         
         setRegionSelected(region as RegionEnum)//save region to fetch api function
 
-        const res = await fetch(`https://restcountries.com/v3.1/region/${region}?fields=name,capital,population,flags`);
+        const res = await fetch(`https://restcountries.com/v3.1/region/${region}?fields=name,capital,population,flags,region`);
         const json = await res.json();
         setCountries(json)
     
     }
 
-
-
+        //https://restcountries.com/v3.1/name/eesti?fields=name,capital,population,flags,region,subregion,tld,currencies,languages,borders
+            //https://restcountries.com/v3.1/name/russia?fields=name,capital,population,flags,region,subregion,tld,currencies,languages,borders,cioc
     const getCountriesByName = async (countryName:string)=>{
         if (countryName) {
           callApi(countryName)
@@ -54,7 +54,7 @@ export const useCountryContext = () => {
 
     const callApi= async (country:string)=>{
 
-        const res = await fetch(`https://restcountries.com/v3.1/name/${country}?fields=name,capital,population,flags`);
+        const res = await fetch(`https://restcountries.com/v3.1/name/${country}?fields=name,capital,population,flags,region`);
         
         if(res.status == 200) {
             const json = await res.json();
