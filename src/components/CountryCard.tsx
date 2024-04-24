@@ -14,6 +14,13 @@ interface CountryCardProps{
 
 export const CountryCard:React.FC<CountryCardProps> = ({name="Moldova", img="https://flagcdn.com/w320/md.png", population=2617820, region="Europe", capital="Chișinău"}) => {
     const {isDarkMode} = useContext(CountryContext)
+
+    const separator = (numb:number):string => {
+        var str = numb.toString().split('.');
+        str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        return str.join('.');
+    }
+
   return (
     <div className={classes(cardStyle, style({backgroundColor:isDarkMode ? darkBlue : white}))}>
         <figure className={cardFigureStyle}> 
@@ -28,7 +35,7 @@ export const CountryCard:React.FC<CountryCardProps> = ({name="Moldova", img="htt
                     Population:
                 </strong>
                 {' '}
-                {population}
+                {separator(population)}
             </p>
             <p className={classes(cardTextStyle, style({marginTop:'8px'}))}>
                 <strong>
