@@ -2,7 +2,7 @@ import { media, style } from 'typestyle'
 import { FillterRegion, SearchCountry } from '../components'
 
 export const Home = () => {
-    let list = [1,2,3,4,5,6,7,8]
+    let list = [1]
   return (
     <div className={homeStyle}>
         <section className={homeFiltersStyle}>
@@ -58,8 +58,18 @@ const homeListWrapperStyle = style(
         height:'auto',
         padding:'0px 56px',
         paddingBottom:'65px',
-        paddingTop:'32px'
-    }
+        paddingTop:'32px',
+       
+    },
+    media(
+        {minWidth:1366},
+        {   
+            padding:'0px 80px',
+            display:'flex',
+            justifyContent:'center'
+            
+        }
+    )
 )
 
 const homeListStyle = style(
@@ -71,7 +81,17 @@ const homeListStyle = style(
         alignItems:'center',
         gap:'40px',
         backgroundColor:'black'
-    }
+    },
+    media(
+        {minWidth:1366},
+        {
+            maxWidth:'1280px',
+            flexDirection:'row',
+            flexWrap:'wrap',
+            alignItems:'flex-start',
+            gap:'74px'
+        }
+    )
 )
 
 
