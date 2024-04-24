@@ -3,12 +3,36 @@ import { style } from 'typestyle';
 import { darkBlue, veryDarkBlue, veryDarkBlueText, veryLightGray, white } from '../theme';
 import { useContext } from 'react';
 import { CountryContext } from '../context';
+import { RegionEnum, RegionOption } from '../schema';
 
 export const FillterRegion = () => {
     const {isDarkMode} = useContext(CountryContext)
     const handleChange = (value: string) => {
         console.log(`selected ${value}`);
-      };
+    };
+
+    const options:RegionOption[] = [
+        {
+            label: RegionEnum.Africa,
+            value: RegionEnum.Africa
+        },
+        {
+            label: RegionEnum.America,
+            value: RegionEnum.America
+        },
+        {
+            label: RegionEnum.Asia,
+            value: RegionEnum.Asia
+        },
+        {
+            label: RegionEnum.Europe,
+            value: RegionEnum.Europe
+        },
+        {
+            label: RegionEnum.Oceania,
+            value: RegionEnum.Oceania
+        }
+    ];
       
   return (
     <ConfigProvider
@@ -30,7 +54,7 @@ export const FillterRegion = () => {
         }}
     >
     <Select
-      defaultValue="lucy"
+      defaultValue={RegionEnum.America}
       suffixIcon={<img src={isDarkMode ? 'expand-moreDark.svg' : 'expand-more.svg'} />}
       style={
             {
@@ -41,12 +65,7 @@ export const FillterRegion = () => {
         }
         className={fillterRegionStyle}
       onChange={handleChange}
-      options={[
-        { value: 'jack', label: 'Jack' },
-        { value: 'lucy', label: 'Lucy' },
-        { value: 'Yiminghe', label: 'yiminghe' },
-        { value: 'disabled', label: 'Disabled', disabled: true },
-      ]}
+      options={options}
     />
     </ConfigProvider>
   )

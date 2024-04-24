@@ -5,7 +5,7 @@ export interface RegionOption {
 }
 
 
-enum RegionEnum {
+export enum RegionEnum {
     Africa  = "Africa",
     America = "America",
     Asia    = "Asia",
