@@ -6,6 +6,9 @@ import { Country } from '../schema';
 export const CountryContext = createContext<CountryContextType>({
     countries: [],
     isDarkMode:false,
+    setisDarkMode:function (): void {
+        throw new Error('Function not implemented.');
+    },
     fetchApi: function (): void {
         throw new Error('Function not implemented.');
     }
@@ -25,6 +28,7 @@ export const useCountryContext = () => {
     return {
         countries,
         isDarkMode,
+        setisDarkMode,
         fetchApi
     }
 };
