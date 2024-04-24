@@ -44,9 +44,11 @@ export const useCountryContext = () => {
             if(res.status == 200) {
                 const json = await res.json();
                 setCountries(json)
+            }else{
+                setCountries([])
             }
         } else {
-            console.log("La cadena no está vacía.");
+            fetchApi()
         }
        
 
