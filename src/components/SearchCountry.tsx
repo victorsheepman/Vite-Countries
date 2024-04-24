@@ -9,7 +9,7 @@ import { media, style } from 'typestyle';
 export const SearchCountry = () => {
     const {isDarkMode} = useContext(CountryContext)
     const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        console.log(e);
+        console.log(e.target.value);
     };
     return (
         <ConfigProvider
