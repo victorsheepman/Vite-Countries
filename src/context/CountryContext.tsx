@@ -5,6 +5,7 @@ import { Country } from '../schema';
 // Creamos el contexto
 export const CountryContext = createContext<CountryContextType>({
     countries: [],
+    isDarkMode:false,
     fetchApi: function (): void {
         throw new Error('Function not implemented.');
     }
@@ -13,6 +14,7 @@ export const CountryContext = createContext<CountryContextType>({
 // Hook personalizado para acceder al contexto
 export const useCountryContext = () => {
     const [countries, setCountries] = useState<Country[]>([]);
+    const [isDarkMode, setisDarkMode] = useState<boolean>(false)
 
     const fetchApi = async ()=>{
         const res = await fetch('https://restcountries.com/v3.1/all?fields=name,capital,population,flags');
@@ -22,6 +24,7 @@ export const useCountryContext = () => {
 
     return {
         countries,
+        isDarkMode,
         fetchApi
     }
 };
