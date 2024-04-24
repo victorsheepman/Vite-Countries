@@ -6,6 +6,6 @@ export interface CountryContextType {
     setisDarkMode:React.Dispatch<React.SetStateAction<boolean>>;
     fetchApi: () => void;
     getCountriesByRegion: (regionItem: string) => void;
-    getCountriesByName: (country: string) => void;
+    getCountriesByName: (countryName: string) => void;
 }
   
