@@ -22,11 +22,8 @@ export const useCountryContext = () => {
     const [countries, setCountries] = useState<Country[]>([]);
     const [isDarkMode, setisDarkMode] = useState<boolean>(false)
 
-
-    //https://restcountries.com/v3.1/region/europe?fields=name,capital,population,flags
-
     const fetchApi = async ()=>{
-        const res = await fetch('https://restcountries.com/v3.1/all?fields=name,capital,population,flags');
+        const res = await fetch('https://restcountries.com/v3.1/region/america?fields=name,capital,population,flags');
         const json = await res.json();
         setCountries(json)
     }
