@@ -1,8 +1,10 @@
 import { media, style } from 'typestyle'
 import { CountryCard, FillterRegion, SearchCountry } from '../components'
+import { useContext } from 'react'
+import { CountryContext } from '../context'
 
 export const Home = () => {
-    let list = [1]
+    const {countries} = useContext(CountryContext)
   return (
     <div className={homeStyle}>
         <section className={homeFiltersStyle}>
@@ -12,8 +14,14 @@ export const Home = () => {
         <section className={homeListWrapperStyle}>
             <div className={homeListStyle}>
                 {
-                    list.map(i=>(
-                        <CountryCard />
+                    countries.map(country=>(
+                        <CountryCard 
+                            name={country.name.common} 
+                            img={country.flags.png} 
+                            capital={country.capital[0]} 
+                            //region={country} 
+                            population={country.population} 
+                        />
                     ))
                 }
             </div>

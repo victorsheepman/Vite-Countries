@@ -8,7 +8,7 @@ interface CountryCardProps{
     name:       string,
     img:        string,
     capital:    string,
-    region:     string,
+    region?:     string,
     population: number
 }
 

@@ -27,7 +27,7 @@ export const useCountryContext = () => {
     const [regionSelected, setRegionSelected] = useState<RegionEnum>(RegionEnum.America)
    
     const fetchApi = async ()=>{
-        const res = await fetch(`https://restcountries.com/v3.1/region/${regionSelected}?fields=name,capital,population,flags`);
+        const res = await fetch(`https://restcountries.com/v3.1/region/${regionSelected}?fields=name,capital,population,flags,region`);
         const json = await res.json();
         setCountries(json)
     }
