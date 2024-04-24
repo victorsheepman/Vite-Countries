@@ -19,7 +19,7 @@ export const Home = () => {
                             name={country.name.common} 
                             img={country.flags.png} 
                             capital={country.capital[0]} 
-                            //region={country} 
+                            region={country.region} 
                             population={country.population} 
                         />
                     ))
