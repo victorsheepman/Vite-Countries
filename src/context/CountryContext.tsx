@@ -39,9 +39,18 @@ export const useCountryContext = () => {
     }
 
     const getCountriesByName = async (country:string)=>{
-        const res = await fetch(`https://restcountries.com/v3.1/name/${country}?fields=name,capital,population,flags`);
-        const json = await res.json();
-        console.log(json);
+        if (country) {
+            const res = await fetch(`https://restcountries.com/v3.1/name/${country}?fields=name,capital,population,flags`);
+            if(res.status == 200) {
+                const json = await res.json();
+                setCountries(json)
+            }
+        } else {
+            console.log("La cadena no está vacía.");
+        }
+       
+
+        
         
     }
 
