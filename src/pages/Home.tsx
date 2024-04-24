@@ -33,6 +33,12 @@ const homeFiltersStyle =  style(
             justifyContent:'space-between'
         }
     ),
+    media(
+        {minWidth:1366},
+        {
+            padding:'48px 80px'
+        }
+    ),
 )
 
 
