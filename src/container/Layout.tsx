@@ -14,8 +14,9 @@ export const Layout = ({children}:{children:ReactNode}) => {
 
 
 const layoutStyle = style(
-    {
-        backgroundColor: veryLightGray,
-        fontFamily:nunito
-    }
+  {
+    backgroundColor: veryLightGray,
+    fontFamily:nunito
+  },
+
 )
