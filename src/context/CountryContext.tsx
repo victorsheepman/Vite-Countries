@@ -15,6 +15,9 @@ export const CountryContext = createContext<CountryContextType>({
     getCountriesByRegion: function (regionItem: string):void {
         throw new Error('Function not implemented.');
     },
+    getCountriesByName: function (country:string):void{
+        throw new Error('Function not implemented.'); 
+    }
 });
 
 // Hook personalizado para acceder al contexto
@@ -35,11 +38,19 @@ export const useCountryContext = () => {
         setCountries(json)
     }
 
+    const getCountriesByName = async (country:string)=>{
+        const res = await fetch(`https://restcountries.com/v3.1/name/${country}?fields=name,capital,population,flags`);
+        const json = await res.json();
+        console.log(json);
+        
+    }
+
     return {
         countries,
         isDarkMode,
         setisDarkMode,
         getCountriesByRegion,
+        getCountriesByName,
         fetchApi
     }
 };

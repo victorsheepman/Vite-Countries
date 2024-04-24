@@ -7,9 +7,10 @@ import { media, style } from 'typestyle';
 
 
 export const SearchCountry = () => {
-    const {isDarkMode} = useContext(CountryContext)
+    const {isDarkMode, getCountriesByName} = useContext(CountryContext)
     const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        console.log(e.target.value);
+        let country = e.target.value.toLowerCase()
+        getCountriesByName(country)
     };
     return (
         <ConfigProvider
