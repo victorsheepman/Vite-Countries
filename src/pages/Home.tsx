@@ -1,11 +1,11 @@
 import { media, style } from 'typestyle'
-import { FillterRegion } from '../components'
+import { FillterRegion, SearchCountry } from '../components'
 
 export const Home = () => {
   return (
     <div className={homeStyle}>
         <section className={homeFiltersStyle}>
-            <div className={searchExample}></div>
+            <SearchCountry />
             <FillterRegion />
         </section>
     </div>
