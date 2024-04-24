@@ -8,11 +8,11 @@ interface CountryCardProps{
     name:       string,
     img:        string,
     capital:    string,
-    region?:     string,
+    region:     string,
     population: number
 }
 
-export const CountryCard:React.FC<CountryCardProps> = ({name="Moldova", img="https://flagcdn.com/w320/md.png", population=2617820, region="Europe", capital="Chișinău"}) => {
+export const CountryCard:React.FC<CountryCardProps> = ({name, img, population, region, capital}) => {
     const {isDarkMode} = useContext(CountryContext)
 
     const separator = (numb:number):string => {
