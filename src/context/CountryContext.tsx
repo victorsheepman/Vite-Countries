@@ -33,10 +33,9 @@ export const useCountryContext = () => {
 
     const getCountriesByRegion = async (regionItem:RegionEnum)=>{
         let region =regionItem.toLowerCase()
-        console.log(region);
-        
-        //const res = await fetch('https://restcountries.com/v3.1/all?fields=name,capital,population,flags');
-        //const json = await res.json();
+        const res = await fetch(`https://restcountries.com/v3.1/region/${region}?fields=name,capital,population,flags`);
+        const json = await res.json();
+        console.log(json);
         //setCountries(json)
     }
 
