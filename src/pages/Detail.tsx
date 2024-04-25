@@ -17,8 +17,6 @@ export const Detail = () => {
 
   const nativeNameKey = Object.keys(countryDetail.name.nativeName)[0]
 
-  console.log(countryDetail.name.nativeName[nativeNameKey].common);
-  
   return (
     <div className={detailStyle}>
         <Link to='/' className={style({textDecoration:'none'})}>
