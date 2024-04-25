@@ -14,6 +14,10 @@ export const Detail = () => {
         getCountryDetail(cioc)
     }
   }, [])
+
+  const nativeNameKey = Object.keys(countryDetail.name.nativeName)[0]
+
+  console.log(countryDetail.name.nativeName[nativeNameKey].common);
   
   return (
     <div className={detailStyle}>
@@ -34,7 +38,15 @@ export const Detail = () => {
             <div className={detailBodyWrapperStyle}>
                 <h4 className={detailTitleStyle}>{countryDetail.name.common}</h4>
                 <div className={detailInfoWrapperStyle}>
-                        <div className={example}></div>
+                        <div className={example}>
+                            <p className={classes(cardTextStyle, style({marginTop:'16px'}))}>
+                                <strong>
+                                    Native Name:
+                                </strong>
+                                {' '}
+                                {countryDetail.name.nativeName[nativeNameKey].common}
+                            </p>
+                        </div>
                         <div className={example2}></div>
                 </div>
             </div>
@@ -220,3 +232,9 @@ const example2 = style(
 )
 
 
+
+const cardTextStyle = style(
+    {
+        fontSize:'14px',
+    }
+)
