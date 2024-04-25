@@ -9,7 +9,7 @@ export const CountryApp = () => {
 
     useEffect(() => {
         fetchApi()
-    }, [])  
+    }, []) 
   return (
     <Layout>
       <Routes>
