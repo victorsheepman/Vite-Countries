@@ -47,10 +47,24 @@ export const Detail = () => {
                             </p>
                             <p className={classes(cardTextStyle, style({marginTop:'16px'}))}>
                                 <strong>
-                                    population:
+                                    Population:
                                 </strong>
                                 {' '}
                                 {separator(countryDetail.population)}
+                            </p>
+                            <p className={classes(cardTextStyle, style({marginTop:'16px'}))}>
+                                <strong>
+                                    Region:
+                                </strong>
+                                {' '}
+                                {countryDetail.region}
+                            </p>
+                            <p className={classes(cardTextStyle, style({marginTop:'16px'}))}>
+                                <strong>
+                                    Sub Region:
+                                </strong>
+                                {' '}
+                                {countryDetail.subregion}
                             </p>
                         </div>
                         <div className={example2}></div>
