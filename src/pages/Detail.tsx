@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { CountryContext } from '../context'
 import { classes, media, style } from 'typestyle'
 import { darkBlue, veryDarkBlueText, white } from '../theme'
+import { separator } from '../utils'
 
 export const Detail = () => {
   const { cioc } = useParams()
@@ -43,6 +44,13 @@ export const Detail = () => {
                                 </strong>
                                 {' '}
                                 {countryDetail.name.nativeName[nativeNameKey].common}
+                            </p>
+                            <p className={classes(cardTextStyle, style({marginTop:'16px'}))}>
+                                <strong>
+                                    population:
+                                </strong>
+                                {' '}
+                                {separator(countryDetail.population)}
                             </p>
                         </div>
                         <div className={example2}></div>

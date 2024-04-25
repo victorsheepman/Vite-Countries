@@ -3,6 +3,7 @@ import { classes, style } from "typestyle"
 import { CountryContext } from "../context"
 import { darkBlue, white } from "../theme"
 import { useNavigate } from "react-router-dom"
+import { separator } from "../utils"
 
 interface CountryCardProps{
 
@@ -18,11 +19,6 @@ export const CountryCard:React.FC<CountryCardProps> = ({name, img, population, r
     const {isDarkMode} = useContext(CountryContext)
     const navigate = useNavigate();
 
-    const separator = (numb:number):string => {
-        const str = numb.toString().split('.');
-        str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-        return str.join('.');
-    }
 
     const goToDetail = () => {
         if (cioc) {
