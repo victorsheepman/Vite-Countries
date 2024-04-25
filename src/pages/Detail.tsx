@@ -82,7 +82,15 @@ export const Detail = () => {
                                 {countryDetail.capital}
                             </p>
                         </div>
-                        <div className={example2}></div>
+                        <div className={example2}>
+                            <p className={cardTextStyle}>
+                                <strong>
+                                    Top Level Domain:
+                                </strong>
+                                {' '}
+                                {countryDetail.tld}
+                            </p>
+                        </div>
                 </div>
             </div>
 
@@ -259,7 +267,11 @@ const example2 = style(
     {
         width:'218px',
         height:'96px',
-        backgroundColor:"blue"
+        display:'flex',
+        flexDirection:'column',
+        justifyContent:'space-between',
+        paddingBottom:'8px',
+        backgroundColor:'rebeccapurple'
     },
     media(
         {minWidth:1366},

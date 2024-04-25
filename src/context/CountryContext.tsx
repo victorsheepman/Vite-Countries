@@ -75,7 +75,7 @@ export const useCountryContext = () => {
     const [isDarkMode, setisDarkMode] = useState<boolean>(false)
     const [regionSelected, setRegionSelected] = useState<RegionEnum>(RegionEnum.America)
 
-    const filters = "name,capital,population,flags,region,cioc,cca2,subregion"
+    const filters = "name,capital,population,flags,region,cioc,cca2,subregion,tld"
    
     const fetchApi = async ()=>{
         const res = await fetch(`https://restcountries.com/v3.1/region/${regionSelected}?fields=${filters}`);
