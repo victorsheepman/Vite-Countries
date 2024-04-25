@@ -5,14 +5,11 @@ import { Layout } from "./container/Layout"
 import { Home } from "./pages"
 
 export const CountryApp = () => {
-    const {fetchApi, getCountryDetail} = useContext(CountryContext)
+    const {fetchApi} = useContext(CountryContext)
 
     useEffect(() => {
         fetchApi()
-    }, []) 
-    useEffect(() => {
-      getCountryDetail()
-  }, [])    
+    }, [])  
   return (
     <Layout>
       <Routes>
