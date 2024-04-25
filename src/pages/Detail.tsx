@@ -70,28 +70,28 @@ export const Detail = () => {
                                 {' '}
                                 {native}
                             </p>
-                            <p className={classes(cardTextStyle, style({marginTop:'0px'}))}>
+                            <p className={cardTextStyle}>
                                 <strong>
                                     Population:
                                 </strong>
                                 {' '}
                                 {separator(countryDetail.population)}
                             </p>
-                            <p className={classes(cardTextStyle, style({marginTop:'0px'}))}>
+                            <p className={cardTextStyle}>
                                 <strong>
                                     Region:
                                 </strong>
                                 {' '}
                                 {countryDetail.region}
                             </p>
-                            <p className={classes(cardTextStyle, style({marginTop:'0px'}))}>
+                            <p className={cardTextStyle}>
                                 <strong className={style({marginRight:'1px'})}>
                                     Sub Region:
                                 </strong>
                                 {' '}
                                 {countryDetail.subregion}
                             </p>
-                            <p className={classes(cardTextStyle, style({marginTop:'0px'}))}>
+                            <p className={cardTextStyle}>
                                 <strong>
                                     Capital:
                                 </strong>
