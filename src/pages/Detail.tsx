@@ -37,7 +37,13 @@ export const Detail = () => {
     
     }, [countryDetail.currencies])
 
+    const languages = useMemo(() => {
+        const languagesArray = Object.values(countryDetail.languages).map(value => ({ name: value }));
+
+
+       return languagesArray
     
+    }, [countryDetail.languages])
 
   return (
     <div className={detailStyle}>
@@ -109,6 +115,14 @@ export const Detail = () => {
                                 </strong>
                                 {' '}
                                 {currency}
+                            </p>
+
+                            <p className={cardTextStyle}>
+                                <strong>
+                                    languages:
+                                </strong>
+                                {' '}
+                                {languages.map(i=>`${i.name}, `)}
                             </p>
                         </div>
                 </div>
