@@ -39,8 +39,6 @@ export const Detail = () => {
 
     const languages = useMemo(() => {
         const languagesArray = Object.values(countryDetail.languages).map(value => ({ name: value }));
-
-
        return languagesArray
     
     }, [countryDetail.languages])
@@ -65,7 +63,7 @@ export const Detail = () => {
                 <h4 className={detailTitleStyle}>{countryDetail.name.common}</h4>
                 <div className={detailInfoWrapperStyle}>
                         <div className={detailInfoGeoStyle}>
-                            <p className={classes(cardTextStyle, style({marginTop:'16px'}))}>
+                            <p className={cardTextStyle}>
                                 <strong>
                                     Native Name:
                                 </strong>
@@ -303,9 +301,8 @@ const example2 = style(
         height:'96px',
         display:'flex',
         flexDirection:'column',
-        justifyContent:'space-between',
+        justifyContent:'space-around',
         paddingBottom:'8px',
-        backgroundColor:'rebeccapurple'
     },
     media(
         {minWidth:1366},
