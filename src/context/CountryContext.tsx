@@ -1,10 +1,33 @@
 import { createContext, useState } from 'react';
 import { CountryContextType } from '.';
-import { Country, RegionEnum } from '../schema';
+import { Country, CountryDetail, RegionEnum } from '../schema';
 
 // Creamos el contexto
 export const CountryContext = createContext<CountryContextType>({
     countries: [],
+    countryDetail: {
+        flags: {
+            png: '',
+            svg: '',
+            alt: ''
+        },
+        name: {
+            common: '',
+            official: '',
+            nativeName: {}
+        },
+        tld: [],
+        cioc: '',
+        currencies: {},
+        capital: [],
+        region: '',
+        subregion: '',
+        languages: {
+            rus: ''
+        },
+        borders: [],
+        population: 0
+    },
     isDarkMode:false,
     setisDarkMode:function (): void {
         throw new Error('Function not implemented.');
@@ -26,6 +49,7 @@ export const CountryContext = createContext<CountryContextType>({
 // Hook personalizado para acceder al contexto
 export const useCountryContext = () => {
     const [countries, setCountries] = useState<Country[]>([]);
+    const [countryDetail, setCountryDetail] = useState<CountryDetail>()
     const [isDarkMode, setisDarkMode] = useState<boolean>(false)
     const [regionSelected, setRegionSelected] = useState<RegionEnum>(RegionEnum.America)
 
@@ -46,9 +70,6 @@ export const useCountryContext = () => {
         setCountries(json)
     
     }
-
-        //https://restcountries.com/v3.1/name/eesti?fields=name,capital,population,flags,region,subregion,tld,currencies,languages,borders
-            //https://restcountries.com/v3.1/name/russia?fields=name,capital,population,flags,region,subregion,tld,currencies,languages,borders,cioc
     const getCountriesByName = async (countryName:string)=>{
         if (countryName) {
           callApi(countryName)
@@ -72,12 +93,15 @@ export const useCountryContext = () => {
 
     const getCountryDetail = async (name:string)=>{
         const res = await fetch(`https://restcountries.com/v3.1/alpha/${name}?fields=${filters}`);  
-        const json = await res.json();
-        console.log(json);
+        if(res.status == 200) {
+            const json = await res.json();
+            setCountryDetail(json)
+        }
     }
 
     return {
         countries,
+        countryDetail,
         isDarkMode,
         setisDarkMode,
         getCountriesByRegion,
