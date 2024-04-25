@@ -33,8 +33,9 @@ export const Detail = () => {
 
             <div className={detailBodyWrapperStyle}>
                 <h4 className={detailTitleStyle}>{countryDetail.name.common}</h4>
-                <div>
-
+                <div className={detailInfoWrapperStyle}>
+                        <div className={example}></div>
+                        <div className={example2}></div>
                 </div>
             </div>
 
@@ -168,3 +169,54 @@ const detailTitleStyle = style(
         }
     )
 )
+
+const detailInfoWrapperStyle = style(
+    {
+        width:'100%',
+        height:'auto',
+        marginTop:'16px',
+        display:'flex',
+        flexDirection:'column',
+        gap:'32px',
+    },
+    media(
+        {minWidth:1366},
+        {
+          flexDirection:'row',
+          gap:'117px',
+          marginTop:'23px',
+        }
+    )
+)
+
+
+const example = style(
+    {
+        width:'181px',
+        height:'160px',
+        backgroundColor:"red"
+    },
+    media(
+        {minWidth:1366},
+        {
+            width:'207px',
+        }
+    )
+)
+
+
+const example2 = style(
+    {
+        width:'218px',
+        height:'96px',
+        backgroundColor:"blue"
+    },
+    media(
+        {minWidth:1366},
+        {
+            width:'249px',
+        }
+    )
+)
+
+
