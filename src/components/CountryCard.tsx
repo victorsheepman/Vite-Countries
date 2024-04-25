@@ -10,10 +10,11 @@ interface CountryCardProps{
     img:        string,
     capital:    string,
     region:     string,
-    population: number
+    population: number,
+    cioc:       string
 }
 
-export const CountryCard:React.FC<CountryCardProps> = ({name, img, population, region, capital}) => {
+export const CountryCard:React.FC<CountryCardProps> = ({name, img, population, region, capital, cioc}) => {
     const {isDarkMode} = useContext(CountryContext)
     const navigate = useNavigate();
 
@@ -24,7 +25,7 @@ export const CountryCard:React.FC<CountryCardProps> = ({name, img, population, r
     }
 
     const goToDetail = () => {
-        navigate(`/detail/${name}`);
+        navigate(`/detail/${cioc}`);
       }; 
 
   return (

@@ -14,7 +14,7 @@ export const CountryApp = () => {
     <Layout>
       <Routes>
         <Route path="/" element={ <Home /> }  />
-        <Route path="/detail/:name"  Component={Detail} />
+        <Route path="/detail/:cioc"  Component={Detail} />
       </Routes>
     </Layout>
   )

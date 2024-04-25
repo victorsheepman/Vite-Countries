@@ -21,6 +21,7 @@ export const Home = () => {
                             capital={country.capital[0]} 
                             region={country.region} 
                             population={country.population} 
+                            cioc={country.cioc}
                         />
                     ))
                 }
