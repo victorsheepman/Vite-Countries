@@ -37,7 +37,7 @@ export const Detail = () => {
             <div className={detailBodyWrapperStyle}>
                 <h4 className={detailTitleStyle}>{countryDetail.name.common}</h4>
                 <div className={detailInfoWrapperStyle}>
-                        <div className={example}>
+                        <div className={detailInfoGeoStyle}>
                             <p className={classes(cardTextStyle, style({marginTop:'16px'}))}>
                                 <strong>
                                     Native Name:
@@ -60,7 +60,7 @@ export const Detail = () => {
                                 {countryDetail.region}
                             </p>
                             <p className={classes(cardTextStyle, style({marginTop:'0px'}))}>
-                                <strong>
+                                <strong className={style({marginRight:'1px'})}>
                                     Sub Region:
                                 </strong>
                                 {' '}
@@ -229,9 +229,9 @@ const detailInfoWrapperStyle = style(
 )
 
 
-const example = style(
+const detailInfoGeoStyle = style(
     {
-        width:'181px',
+        width:'184px',
         height:'160px',
         display:'flex',
         flexDirection:'column',
@@ -266,11 +266,12 @@ const example2 = style(
 const cardTextStyle = style(
     {
         fontSize:'14px',
+        fontWeight:'lighter',
     },
     media(
         {minWidth:1366},
         {
-            fontSize:'16px',
+            //fontSize:'16px',
         }
     )
 )
