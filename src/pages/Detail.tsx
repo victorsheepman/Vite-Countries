@@ -45,26 +45,33 @@ export const Detail = () => {
                                 {' '}
                                 {countryDetail.name.nativeName[nativeNameKey].common}
                             </p>
-                            <p className={classes(cardTextStyle, style({marginTop:'16px'}))}>
+                            <p className={classes(cardTextStyle, style({marginTop:'0px'}))}>
                                 <strong>
                                     Population:
                                 </strong>
                                 {' '}
                                 {separator(countryDetail.population)}
                             </p>
-                            <p className={classes(cardTextStyle, style({marginTop:'16px'}))}>
+                            <p className={classes(cardTextStyle, style({marginTop:'0px'}))}>
                                 <strong>
                                     Region:
                                 </strong>
                                 {' '}
                                 {countryDetail.region}
                             </p>
-                            <p className={classes(cardTextStyle, style({marginTop:'16px'}))}>
+                            <p className={classes(cardTextStyle, style({marginTop:'0px'}))}>
                                 <strong>
                                     Sub Region:
                                 </strong>
                                 {' '}
                                 {countryDetail.subregion}
+                            </p>
+                            <p className={classes(cardTextStyle, style({marginTop:'0px'}))}>
+                                <strong>
+                                    Capital:
+                                </strong>
+                                {' '}
+                                {countryDetail.capital}
                             </p>
                         </div>
                         <div className={example2}></div>
@@ -226,7 +233,10 @@ const example = style(
     {
         width:'181px',
         height:'160px',
-        backgroundColor:"red"
+        display:'flex',
+        flexDirection:'column',
+        justifyContent:'space-between',
+        paddingBottom:'8px',
     },
     media(
         {minWidth:1366},
@@ -256,5 +266,11 @@ const example2 = style(
 const cardTextStyle = style(
     {
         fontSize:'14px',
-    }
+    },
+    media(
+        {minWidth:1366},
+        {
+            fontSize:'16px',
+        }
+    )
 )
