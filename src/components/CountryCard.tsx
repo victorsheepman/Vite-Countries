@@ -11,7 +11,7 @@ interface CountryCardProps{
     capital:    string,
     region:     string,
     population: number,
-    cioc:       string
+    cioc?:       string 
 }
 
 export const CountryCard:React.FC<CountryCardProps> = ({name, img, population, region, capital, cioc}) => {
@@ -25,8 +25,11 @@ export const CountryCard:React.FC<CountryCardProps> = ({name, img, population, r
     }
 
     const goToDetail = () => {
-        navigate(`/detail/${cioc}`);
-      }; 
+        if (cioc) {
+            navigate(`/detail/${cioc}`);
+        }
+        
+    }; 
 
   return (
     <div className={classes(cardStyle, style({backgroundColor:isDarkMode ? darkBlue : white}))} onClick={goToDetail}>
