@@ -49,7 +49,29 @@ export const CountryContext = createContext<CountryContextType>({
 // Hook personalizado para acceder al contexto
 export const useCountryContext = () => {
     const [countries, setCountries] = useState<Country[]>([]);
-    const [countryDetail, setCountryDetail] = useState<CountryDetail>()
+    const [countryDetail, setCountryDetail] = useState<CountryDetail>({
+        flags: {
+            png: '',
+            svg: '',
+            alt: ''
+        },
+        name: {
+            common: '',
+            official: '',
+            nativeName: {}
+        },
+        tld: [],
+        cioc: '',
+        currencies: {},
+        capital: [],
+        region: '',
+        subregion: '',
+        languages: {
+            rus: ''
+        },
+        borders: [],
+        population: 0
+    })
     const [isDarkMode, setisDarkMode] = useState<boolean>(false)
     const [regionSelected, setRegionSelected] = useState<RegionEnum>(RegionEnum.America)
 
