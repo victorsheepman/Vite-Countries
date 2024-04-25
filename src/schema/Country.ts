@@ -4,6 +4,7 @@ export interface Country {
     capital:    string[];
     population: number;
     region:     string,
+    cioc:       string
 }
 
 type Flags = {
