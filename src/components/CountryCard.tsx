@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { classes, style } from "typestyle"
 import { CountryContext } from "../context"
 import { darkBlue, white } from "../theme"
+import { useNavigate } from "react-router-dom"
 
 interface CountryCardProps{
 
@@ -14,15 +15,20 @@ interface CountryCardProps{
 
 export const CountryCard:React.FC<CountryCardProps> = ({name, img, population, region, capital}) => {
     const {isDarkMode} = useContext(CountryContext)
+    const navigate = useNavigate();
 
     const separator = (numb:number):string => {
-        var str = numb.toString().split('.');
+        const str = numb.toString().split('.');
         str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
         return str.join('.');
     }
 
+    const goToDetail = () => {
+        navigate(`/detail/${name}`);
+      }; 
+
   return (
-    <div className={classes(cardStyle, style({backgroundColor:isDarkMode ? darkBlue : white}))}>
+    <div className={classes(cardStyle, style({backgroundColor:isDarkMode ? darkBlue : white}))} onClick={goToDetail}>
         <figure className={cardFigureStyle}> 
             <img src={img} className={cardImageStyle} />
         </figure>
