@@ -1,12 +1,12 @@
 import { useContext, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { CountryContext } from '../context'
-import { classes, style } from 'typestyle'
+import { classes, media, style } from 'typestyle'
 import { darkBlue, veryDarkBlueText, white } from '../theme'
 
 export const Detail = () => {
   const { cioc } = useParams()
-  const { getCountryDetail, isDarkMode } = useContext(CountryContext)
+  const { getCountryDetail, isDarkMode, countryDetail } = useContext(CountryContext)
 
 
   useEffect(() => {
@@ -25,6 +25,17 @@ export const Detail = () => {
                 Back
             </button>
         </Link>
+
+        <section className={detailContentStyle}>
+            <figure className={detailFlagStyle}>
+                <img className={detailFlagImageStyle} src={countryDetail.flags.png} alt={countryDetail.flags.alt} />
+            </figure>
+
+            <figure className={detailFlagStyle}>
+
+            </figure>
+
+        </section>
 
     </div>
   )
@@ -67,9 +78,65 @@ const buttonLightMode = style(
   )
   
   
-  const buttonDarkMode = style(
+const buttonDarkMode = style(
     {
       color:white, 
       backgroundColor:darkBlue 
     }
-  )
+)
+
+
+const detailContentStyle = style(
+    {
+        width:'100%',
+        height:'auto',
+        marginTop:'64px',
+        display:'flex',
+        alignItems:'center',
+        flexDirection:'column',
+        gap:'44px'
+    },
+    media(
+        {minWidth:1366},
+        {
+           flexDirection:'row',
+           gap:'144px',
+           justifyContent:'center'
+        }
+    )
+)
+
+const detailFlagStyle = style(
+    {
+        width: '100%',
+        maxWidth: '320px',
+        height: '229px',
+        borderRadius:'5.72px',
+        backgroundColor:'red'
+    },
+    media(
+        {minWidth:1366},
+        {
+           maxWidth:'560px',
+           height:'401px',
+           borderRadius:'10px'
+        }
+    )
+)
+
+const detailFlagImageStyle = style(
+    {
+        width:'100%',
+        height:'100%',
+        objectFit:'cover',
+        borderRadius:'5.72px'
+    },
+    media(
+        {minWidth:1366},
+        {
+            borderRadius:'10px'
+        }
+    )
+)
+
+
