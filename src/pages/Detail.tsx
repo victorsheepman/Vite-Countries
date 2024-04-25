@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useMemo } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { CountryContext } from '../context'
 import { classes, media, style } from 'typestyle'
@@ -16,7 +16,15 @@ export const Detail = () => {
     }
   }, [])
 
-  const nativeNameKey = Object.keys(countryDetail.name.nativeName)[0]
+
+    const native = useMemo(() => {
+        const nativeNameKey = Object.keys(countryDetail.name.nativeName)[0]
+        if (countryDetail.name.nativeName[nativeNameKey]) {
+            return countryDetail.name.nativeName[nativeNameKey].common
+        }
+        return ''
+    
+    }, [countryDetail.name.nativeName])
 
   return (
     <div className={detailStyle}>
@@ -43,7 +51,7 @@ export const Detail = () => {
                                     Native Name:
                                 </strong>
                                 {' '}
-                                {countryDetail.name.nativeName[nativeNameKey].common}
+                                {native}
                             </p>
                             <p className={classes(cardTextStyle, style({marginTop:'0px'}))}>
                                 <strong>
