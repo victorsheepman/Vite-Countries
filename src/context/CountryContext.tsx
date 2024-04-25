@@ -68,14 +68,10 @@ export const useCountryContext = () => {
     
     }
 
-    const getCountryDetail = async ()=>{
-        const res = await fetch(`https://restcountries.com/v3.1/name/russia?fields=name,capital,population,flags,region,subregion,tld,currencies,languages,borders,cioc`);  
+    const getCountryDetail = async (name:string)=>{
+        const res = await fetch(`https://restcountries.com/v3.1/name/${name}?fields=name,capital,population,flags,region,subregion,tld,currencies,languages,borders,cioc`);  
         const json = await res.json();
         console.log(json);
-        
-
-        
-        
     }
 
     return {

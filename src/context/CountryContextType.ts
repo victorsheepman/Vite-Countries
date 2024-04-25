@@ -7,6 +7,6 @@ export interface CountryContextType {
     fetchApi: () => void;
     getCountriesByRegion: (regionItem: string) => void;
     getCountriesByName: (countryName: string) => void;
-    getCountryDetail: () => void;
+    getCountryDetail: (name: string) => void;
 }
   
