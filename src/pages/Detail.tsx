@@ -26,6 +26,19 @@ export const Detail = () => {
     
     }, [countryDetail.name.nativeName])
 
+    const currency = useMemo(() => {
+        const currencyKey = Object.keys(countryDetail.currencies)[0]
+
+        if (countryDetail.currencies[currencyKey]) {
+            return countryDetail.currencies[currencyKey].name
+        }
+        
+        return ''
+    
+    }, [countryDetail.currencies])
+
+    
+
   return (
     <div className={detailStyle}>
         <Link to='/' className={style({textDecoration:'none'})}>
@@ -89,6 +102,13 @@ export const Detail = () => {
                                 </strong>
                                 {' '}
                                 {countryDetail.tld}
+                            </p>
+                            <p className={cardTextStyle}>
+                                <strong>
+                                    Currencies:
+                                </strong>
+                                {' '}
+                                {currency}
                             </p>
                         </div>
                 </div>
