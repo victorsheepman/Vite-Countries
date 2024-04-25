@@ -17,6 +17,9 @@ export const CountryContext = createContext<CountryContextType>({
     },
     getCountriesByName: function ():void{
         throw new Error('Function not implemented.'); 
+    },
+    getCountryDetail: function ():void{
+        throw new Error('Function not implemented.'); 
     }
 });
 
@@ -65,12 +68,19 @@ export const useCountryContext = () => {
     
     }
 
+    const getCountryDetail = async ()=>{
+        const res = await fetch(`https://restcountries.com/v3.1/name/russia?fields=name,capital,population,flags,region,subregion,tld,currencies,languages,borders,cioc`);  
+        const json = await res.json();
+        console.log(json);
+    }
+
     return {
         countries,
         isDarkMode,
         setisDarkMode,
         getCountriesByRegion,
         getCountriesByName,
+        getCountryDetail,
         fetchApi
     }
 };
