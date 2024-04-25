@@ -31,9 +31,12 @@ export const Detail = () => {
                 <img className={detailFlagImageStyle} src={countryDetail.flags.png} alt={countryDetail.flags.alt} />
             </figure>
 
-            <figure className={detailFlagStyle}>
+            <div className={detailBodyWrapperStyle}>
+                <h4 className={detailTitleStyle}>{countryDetail.name.common}</h4>
+                <div>
 
-            </figure>
+                </div>
+            </div>
 
         </section>
 
@@ -139,4 +142,29 @@ const detailFlagImageStyle = style(
     )
 )
 
+const detailBodyWrapperStyle = style(
+    {
+        width:"100%",
+        maxWidth:'547px',
+        height:'auto',
+    },
+    media(
+        {minWidth:1366},
+        {
+            height:'323px',
+        }
+    )
+)
 
+const detailTitleStyle = style(
+    {
+        fontSize:'1.375rem',
+        fontWeight:'bolder'
+    },
+    media(
+        {minWidth:1366},
+        {
+            fontSize:'2rem',
+        }
+    )
+)
