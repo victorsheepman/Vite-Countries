@@ -1,5 +1,5 @@
 import { useContext, useEffect, useMemo } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { CountryContext } from '../context'
 import { classes, media, style } from 'typestyle'
 import { darkBlue, veryDarkBlueText, white } from '../theme'
@@ -9,6 +9,14 @@ export const Detail = () => {
   const { cioc } = useParams()
   const { getCountryDetail, isDarkMode, countryDetail } = useContext(CountryContext)
 
+  const navigate = useNavigate();
+
+
+    const goToDetail = (code:string) => {
+      if (code) {
+          navigate(`/detail/${code}`);
+      }
+    }; 
 
   useEffect(() => {
     if (cioc) {
@@ -126,9 +134,14 @@ export const Detail = () => {
                         <div className={detailBorderCountriesStyle}>
                             <h4 className={detailBorderCountriesTitleStyle}>Border Countries:</h4>
                             <div className={detailBorderCountriesListStyle}>
-                                <button className={classes(detailBorderButtonStyle, detailBorderButtonTextStyle, style({backgroundColor:isDarkMode ? darkBlue : white, color:isDarkMode?white:veryDarkBlueText}))}>
-                                  France
-                                </button>
+                                {
+                                    countryDetail.borders.map(border=>(
+                                        <button onClick={()=>goToDetail(border)} className={classes(detailBorderButtonStyle, detailBorderButtonTextStyle, style({backgroundColor:isDarkMode ? darkBlue : white, color:isDarkMode?white:veryDarkBlueText}))}>
+                                            {border}
+                                        </button>
+                                    ))
+                                }
+                                
                             </div>
                         </div>
                 </div>
