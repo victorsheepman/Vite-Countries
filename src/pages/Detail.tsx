@@ -41,15 +41,8 @@ export const Detail = () => {
         const { name, cca2, cioc } = country;
         const ciocValue = cioc || cca2; // Usar cioc si está definido, de lo contrario usar cca2
         return { name, cioc: ciocValue };
-      });
-      
-      console.log(filteredCountriesWithCioc);
-      
-  
-  
-
- 
-
+    });
+        
     const native = useMemo(() => {
         const nativeNameKey = Object.keys(countryDetail.name.nativeName)[0]
         if (countryDetail.name.nativeName[nativeNameKey]) {
