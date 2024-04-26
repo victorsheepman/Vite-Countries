@@ -5,6 +5,7 @@ import { classes, media, style } from 'typestyle'
 import { darkBlue, veryDarkBlueText, white } from '../theme'
 import { separator } from '../utils'
 
+
 export const Detail = () => {
   const { cioc } = useParams()
   const { getCountryDetail, isDarkMode, countryDetail } = useContext(CountryContext)
@@ -21,7 +22,7 @@ export const Detail = () => {
   useEffect(() => {
     if (cioc) {
         getCountryDetail(cioc)
-    }
+    }    
   }, [cioc])
 
 
@@ -370,6 +371,7 @@ const detailBorderCountriesListStyle = style(
         width:'100%',
         height:'28px',
         display:'flex',
+        flexWrap:'wrap',
         gap:'10px'
     }
 )
