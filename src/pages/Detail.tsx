@@ -22,8 +22,10 @@ export const Detail = () => {
     if (cioc) {
         getCountryDetail(cioc)
     }
-  }, [])
+  }, [cioc])
 
+
+ 
 
     const native = useMemo(() => {
         const nativeNameKey = Object.keys(countryDetail.name.nativeName)[0]
