@@ -99,7 +99,7 @@ export const Detail = () => {
                                 {countryDetail.capital}
                             </p>
                         </div>
-                        <div className={example2}>
+                        <div className={detailInfoEcomStyle}>
                             <p className={cardTextStyle}>
                                 <strong>
                                     Top Level Domain:
@@ -122,6 +122,14 @@ export const Detail = () => {
                                 {' '}
                                 {languages.map(i=>`${i.name}, `)}
                             </p>
+                        </div>
+                        <div className={detailBorderCountriesStyle}>
+                            <h4 className={detailBorderCountriesTitleStyle}>Border Countries:</h4>
+                            <div className={detailBorderCountriesListStyle}>
+                                <div className={example}></div>
+                                <div className={example}></div>
+                                <div className={example}></div>
+                            </div>
                         </div>
                 </div>
             </div>
@@ -233,7 +241,7 @@ const detailFlagImageStyle = style(
 const detailBodyWrapperStyle = style(
     {
         width:"100%",
-        maxWidth:'547px',
+        maxWidth:'598px',
         height:'auto',
     },
     media(
@@ -270,6 +278,7 @@ const detailInfoWrapperStyle = style(
         {minWidth:1366},
         {
           flexDirection:'row',
+          flexWrap:'wrap',
           gap:'117px',
           marginTop:'23px',
         }
@@ -295,7 +304,7 @@ const detailInfoGeoStyle = style(
 )
 
 
-const example2 = style(
+const detailInfoEcomStyle = style(
     {
         width:'218px',
         height:'96px',
@@ -319,10 +328,40 @@ const cardTextStyle = style(
         fontSize:'14px',
         fontWeight:'lighter',
     },
-    media(
-        {minWidth:1366},
-        {
-            //fontSize:'16px',
-        }
-    )
+)
+
+const detailBorderCountriesStyle = style(
+    {
+        width:'100%',
+        maxWidth:'451px',
+        height:'28px',
+        display:'flex',
+        flexDirection:'column',
+        gap:'16px'
+    }
+)
+
+const detailBorderCountriesTitleStyle = style(
+    {
+        fontSize:'1rem'
+    }
+)
+
+const detailBorderCountriesListStyle = style(
+    {
+        width:'100%',
+        height:'28px',
+        display:'flex',
+        gap:'10px'
+    }
+)
+
+
+const example = style(
+    {
+        width:'96px',
+        height:'28px',
+        backgroundColor:'red'
+       
+    }
 )
