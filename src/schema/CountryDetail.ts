@@ -30,7 +30,7 @@ type Languages = {
     rus: string;
 }
 
-type Name = {
+export interface Name {
     common:     string;
     official:   string;
     nativeName: NativeName;

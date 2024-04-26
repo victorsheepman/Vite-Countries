@@ -4,11 +4,17 @@ import { CountryContext } from '../context'
 import { classes, media, style } from 'typestyle'
 import { darkBlue, veryDarkBlueText, white } from '../theme'
 import { separator } from '../utils'
+import { Name } from '../schema'
 
+type BorderCountry = {
+    cioc:string,
+    name:Name
+
+}
 
 export const Detail = () => {
   const { cioc } = useParams()
-  const { getCountryDetail, isDarkMode, countryDetail } = useContext(CountryContext)
+  const { getCountryDetail, isDarkMode, countryDetail, countries } = useContext(CountryContext)
 
   const navigate = useNavigate();
 
@@ -25,6 +31,22 @@ export const Detail = () => {
     }    
   }, [cioc])
 
+
+
+    const filteredCountries = countries.filter(country => 
+        countryDetail.borders.includes(country.cca2) || countryDetail.borders.includes(country.cioc)
+    );
+
+    const filteredCountriesWithCioc:BorderCountry[] = filteredCountries.map(country => {
+        const { name, cca2, cioc } = country;
+        const ciocValue = cioc || cca2; // Usar cioc si está definido, de lo contrario usar cca2
+        return { name, cioc: ciocValue };
+      });
+      
+      console.log(filteredCountriesWithCioc);
+      
+  
+  
 
  
 
@@ -138,9 +160,9 @@ export const Detail = () => {
                             <h4 className={detailBorderCountriesTitleStyle}>Border Countries:</h4>
                             <div className={detailBorderCountriesListStyle}>
                                 {
-                                    countryDetail.borders.map(border=>(
-                                        <button onClick={()=>goToDetail(border)} className={classes(detailBorderButtonStyle, detailBorderButtonTextStyle, style({backgroundColor:isDarkMode ? darkBlue : white, color:isDarkMode?white:veryDarkBlueText}))}>
-                                            {border}
+                                    filteredCountriesWithCioc.map(border=>(
+                                        <button onClick={()=>goToDetail(border.cioc)} className={classes(detailBorderButtonStyle, detailBorderButtonTextStyle, style({backgroundColor:isDarkMode ? darkBlue : white, color:isDarkMode?white:veryDarkBlueText}))}>
+                                            {border.name.common}
                                         </button>
                                     ))
                                 }
