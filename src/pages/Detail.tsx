@@ -273,14 +273,17 @@ const detailInfoWrapperStyle = style(
         display:'flex',
         flexDirection:'column',
         gap:'32px',
+        paddingBottom:'62px'
     },
     media(
         {minWidth:1366},
         {
           flexDirection:'row',
           flexWrap:'wrap',
-          gap:'117px',
+          columnGap:'117px',
+          rowGap:'68px',
           marginTop:'23px',
+          paddingBottom:'unset'
         }
     )
 )
