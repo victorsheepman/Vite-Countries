@@ -126,9 +126,9 @@ export const Detail = () => {
                         <div className={detailBorderCountriesStyle}>
                             <h4 className={detailBorderCountriesTitleStyle}>Border Countries:</h4>
                             <div className={detailBorderCountriesListStyle}>
-                                <div className={example}></div>
-                                <div className={example}></div>
-                                <div className={example}></div>
+                                <button className={classes(detailBorderButtonStyle, detailBorderButtonTextStyle, style({backgroundColor:isDarkMode ? darkBlue : white, color:isDarkMode?white:veryDarkBlueText}))}>
+                                  France
+                                </button>
                             </div>
                         </div>
                 </div>
@@ -360,11 +360,19 @@ const detailBorderCountriesListStyle = style(
 )
 
 
-const example = style(
+const detailBorderButtonStyle = style(
     {
         width:'96px',
         height:'28px',
-        backgroundColor:'red'
+        borderRadius:'2px',
+        border:'none',
+        boxShadow: `0px 4px 4px -2px rgba(0, 0, 0, 0.1)`,
        
+    }
+)
+const detailBorderButtonTextStyle = style(
+    {
+       fontSize:'12px',
+       fontWeight:'lighter'
     }
 )

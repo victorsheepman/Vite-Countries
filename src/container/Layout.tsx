@@ -7,7 +7,7 @@ import { CountryContext } from '../context'
 export const Layout = ({children}:{children:ReactNode}) => {
   const {isDarkMode} = useContext(CountryContext)
   return (
-    <div className={classes(style({fontFamily:nunito, height:'1vh'}), isDarkMode ? layoutDark : layout)}>
+    <div className={classes(style({fontFamily:nunito}), isDarkMode ? layoutDark : layout)}>
         <Header/>
         {children}
     </div>
